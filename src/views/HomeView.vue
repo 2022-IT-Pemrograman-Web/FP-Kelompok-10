@@ -7,7 +7,7 @@
 		<h1>Sistem Informasi Ternak Hewan</h1>
 	</div>
     <div class="dasboard">
-        <img alt="dashboard icon" src="../assets/white/dashboard-icon.svg"><a>Dashboard</a><hr />
+        <img alt="dashboard icon" src="../assets/white/dashboard-icon.svg"><a href="home">Dashboard</a><hr />
         <img alt="list icon" src="../assets/white/list-icon.svg"><a href="daftar-ternak">Daftar Hewan Ternak</a><hr />
         <img alt="add icon" src="../assets/white/add-icon.svg"><a href="hewan-baru">Hewan Ternak Baru</a><hr />
         <!-- <img alt="history icon" src="../assets/white/history-icon.svg"><a href="transaksi">Riwayat Transaksi Ternak</a><hr /> -->

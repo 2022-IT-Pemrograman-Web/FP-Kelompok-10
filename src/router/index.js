@@ -19,32 +19,14 @@ const routes = [
     path: '/daftar-ternak',
     name: 'daftar-ternak',
     component: () => import('../views/DaftarTernakView.vue'),
+    meta:{title: 'Daftar Ternak'}
   },
   {
     path: '/hewan-baru',
     name: 'hewan-baru',
     component: () => import('../views/HewanBaruView.vue'),
+    meta:{title: 'Hewan Baru'}
   },
-  // {
-  //   path: '/pengobatan',
-  //   name: 'pengobatan',
-  //   component: () => import('../views/PengobatanView.vue')
-  // },
-  // {
-  //   path: '/prestasi',
-  //   name: 'prestasi',
-  //   component: () => import('../views/PrestasiView.vue')
-  // },
-  // {
-  //   path: '/tanggal',
-  //   name: 'tanggal',
-  //   component: () => import('../views/TanggalView.vue')
-  // },
-  // {
-  //   path: '/transaksi',
-  //   name: 'transaksi',
-  //   component: () => import('../views/TransaksiView.vue')
-  // },
   
 ]
 

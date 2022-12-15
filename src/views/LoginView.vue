@@ -70,6 +70,12 @@ export default {
 </script>
 
 <style>
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+}
+
 .forms {
     display: flex;
     min-height: 100vh;
