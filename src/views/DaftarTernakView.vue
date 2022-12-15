@@ -10,6 +10,7 @@
     <img alt="dashboard icon" src="../assets/white/dashboard-icon.svg"><a href="home">Dashboard</a><hr />
     <img alt="list icon" src="../assets/white/list-icon.svg"><a href="daftar-ternak">Daftar Hewan Ternak</a><hr />
     <img alt="add icon" src="../assets/white/add-icon.svg"><a href="hewan-baru">Hewan Ternak Baru</a><hr />
+    <!-- <img alt="history icon" src="../assets/white/history-icon.svg"><a href="transaksi">Riwayat Transaksi Ternak</a><hr /> -->
 	</div>
   <div class="menu">
     <img alt="cow icon" src="../assets/black/cow-icon.svg">
@@ -36,19 +37,50 @@
         <td data-label="Jenis Kelamin">{{profilhewan.jeniskelamin}}</td>
         <td data-label="Berat Badan">{{profilhewan.beratbadan}}</td>
         <td data-label="Hasil Kawin">{{profilhewan.hasilkawin}}</td>
-	<button @click="deleteProfilHewan(profilhewan.id)">Delete</button>
-        <button @click="updateProfilHewan(profilhewan.id)">Update</button>
+        <!--<button @click="deleteProfilHewan(profilhewan.id)">Delete</button>
+        <button @click="updateProfilHewan(profilhewan.id)">Update</button>-->
 			</tr>
     </tbody>
-		
+		<!-- <tbody>
+			<tr>
+				<td data-label="ID Hewan">S-01</td>
+				<td data-label="Nama">Paul</td>
+        <td data-label="Usia">10 tahun</td>
+        <td data-label="Jenis Kelamin">Jantan</td>
+        <td data-label="Berat Badan">1000 kg</td>
+			</tr>
+			<tr>
+				<td data-label="ID Hewan">S-02</td>
+				<td data-label="Nama">Jenny</td>
+        <td data-label="Usia">12 tahun</td>
+        <td data-label="Jenis Kelamin">Betina</td>
+        <td data-label="Berat Badan">800 kg</td>
+			</tr>
+   
+      <tr>
+        <td data-label="ID Hewan">K-01</td>
+				<td data-label="Nama">Shaun</td>
+        <td data-label="Usia">4 tahun</td>
+        <td data-label="Jenis Kelamin">Jantan</td>
+        <td data-label="Berat Badan">50 kg</td>
+        </tr>
+   
+      <tr>
+        <td data-label="ID Hewan">K-02</td>
+        <td data-label="Nama">Trixie</td>
+        <td data-label="Usia">10 tahun</td>
+        <td data-label="Jenis Kelamin">Betina</td>
+        <td data-label="Berat Badan">120 kg</td>
+      </tr>
+    </tbody> -->
   </table>
 </template>
 
 
 <script>
-import { collection, getDocs, deleteDoc, updateDoc, doc } from "firebase/firestore/lite";
+import { collection, getDocs, updateDoc, doc } from "firebase/firestore/lite";
 import db from "../firebase";
-
+import axios from "axios";
 
 export default {
   data() {
@@ -57,7 +89,10 @@ export default {
     };
   },
   mounted() {
-    this.getprofilhewan2();
+    this.getprofilhewan2()
+    /*axios.get('http://localhost:8081/read').then((res)=>{
+      this.setprofileHewan(res.data)
+    })*/
   },
   methods: {
     getprofilhewan2() {
@@ -68,18 +103,23 @@ export default {
       });
       console.log(this.todos);
     },
-    deleteProfilHewan(id){
-      (async () => {
-        await deleteDoc(doc(collection(db, "profilhewan"), id));
-      })();
+    /*setprofilehewan(data){
+      this.profilhewan = data
     },
-    updateProfilHewan(id){
+    async deleteprofilhewan(id){
+      await fetch("http://localhost:8080/delete/" + id, {
+        method: "DELETE",
+      }).then (res => res.json())
+      .then(res => console.log(res))
+      console.log(id)
+    },
+    updateprofilhewan(id){
       (async () => {
         await updateDoc(doc(collection(db, "profilhewan"), id), {
           nama: "abc"
         });
       })();
-    }
+    }*/
   }
 }
 </script>
@@ -87,6 +127,7 @@ export default {
 <style>
 body{
 	margin: 0;
+	font-family: sans-serif;
 }
 
 .header{
@@ -128,6 +169,7 @@ h2{
 
 .welcome h2{
 	margin-left: 20px;
+	font-family: 'comic sans ms';
 	color: white;
 	text-align: start;
 }
@@ -144,6 +186,7 @@ h2{
 .header h1{
 	margin: 0;
 	color: white;
+	font-family: 'comic sans ms';
 	font-size: 50px;
 	font-weight: bold;
 }
@@ -163,6 +206,7 @@ h2{
 
 .menu span{
   margin-left: 10px;
+  font-family: 'comic sans ms';
   font-size: 30px;
   align-items:center;
   line-height: 0px;
@@ -187,6 +231,7 @@ h2{
 }
 
 .dasboard a{
+  font-family: 'comic sans ms';
   color: rgb(255, 255, 255);
   font-size:x-large;
   display: flex;
