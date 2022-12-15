@@ -24,34 +24,6 @@
 				<h4>Lihat Detail -></h4>
 			</div>
 		</a>
-		<!-- <a href="prestasi">
-			<div class="prestasi-list">
-				<h1>Jumlah Prestasi</h1>
-				<h3>4</h3>
-				<h4>Lihat Detail -></h4>
-			</div>
-		</a> -->
-		<!-- <a href="transaksi">
-			<div class="ketuntungan-list">
-				<h1>Total Keuntungan</h1>
-				<h3>Rp 8.000.000</h3>
-				<h4>Lihat Detail -></h4>
-			</div>
-		</a> -->
-		<!-- <a href="tanggal">
-			<div class="calendar-list">
-				<h1>Tanggal Penting</h1>
-				<h3>7</h3>
-				<h4>Lihat Detail -></h4>
-			</div>
-		</a> -->
-		<!-- <a href="pengobatan">
-			<div class="medicine-list">
-				<h1>Riwayat Pengobatan</h1>
-				<h3>4</h3>
-				<h4>Lihat Detail -></h4>
-			</div>
-		</a> -->
 	</div>
 </template>
 
@@ -70,7 +42,6 @@ export default {
 <style>
 body{
 	margin: 0px;
-	font-family: sans-serif;
 }
 
 .welcome{
@@ -81,7 +52,6 @@ body{
 
 .welcome h2{
 	margin-left: 20px;
-	font-family: 'comic sans ms';
 	color: white;
 	text-align: start;
 }
@@ -98,7 +68,6 @@ body{
 .header h1{
 	margin: 0;
 	color: white;
-	font-family: 'comic sans ms';
 	font-size: 60px;
 	font-weight: bold;
 }
@@ -122,7 +91,6 @@ body{
 }
 
 .dasboard a{
-    font-family: 'comic sans ms';
     color: rgb(255, 255, 255);
     font-size:x-large;
     display: flex;
@@ -145,7 +113,6 @@ body{
 
 .menu span{
     margin-left: 10px;
-    font-family: 'comic sans ms';
     font-size: 30px;
     align-items:center;
     line-height: 0px;
@@ -172,7 +139,6 @@ h2{
 .item-list a{
     color: rgb(255, 255, 255);
     text-decoration: none;
-    font-family: 'comic sans ms';
     font-size: 12px;
     margin-bottom: 0;
 }
@@ -278,7 +244,6 @@ h2{
 }
 	
 .item-card p{
-	font-family: 'comic sans ms';
 	font-weight: 800;
 	font-size: 25px;
 	text-align: center;

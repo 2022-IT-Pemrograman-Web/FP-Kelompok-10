@@ -10,7 +10,6 @@
   <img alt="dashboard icon" src="../assets/white/dashboard-icon.svg"><a href="home">Dashboard</a><hr />
   <img alt="list icon" src="../assets/white/list-icon.svg"><a href="daftar-ternak">Daftar Hewan Ternak</a><hr />
   <img alt="add icon" src="../assets/white/add-icon.svg"><a href="hewan-baru">Hewan Ternak Baru</a><hr />
-  <!-- <img alt="history icon" src="../assets/white/history-icon.svg"><a href="transaksi">Riwayat Transaksi Ternak</a><hr /> -->
 </div>
 <div class="menu">
   <img alt="cow icon" src="../assets/black/cow-icon.svg">
@@ -60,7 +59,6 @@
     </div>
   </form>
 </div>
-<!-- @click="plusJumlahHewan(id, jumlahhewan.id)" -->
 </template>
 
 
@@ -68,7 +66,6 @@
 import { setDoc, doc, collection, /*query, where, getCountFromServer, updateDoc*/ } from "firebase/firestore/lite";
 import db from "../firebase";
 
-import $ from 'jquery'
 
 export default {
   data() {
@@ -85,59 +82,7 @@ export default {
       // jumlahhewan: [],
     };
   },
-  mounted () {
-    this.getCount();
-    $(document).ready(function(){
-        $('#frm-hwn').validate({
-            rules: {
-                jenis : {
-                    required: true
-                },
-                id : {
-                    required: true
-                },
-                nama: {
-                    required: true,
-                },
-                gender: {
-                    required: true
-                },
-                umur: {
-                    required: true,
-                    digits: true,
-                    range: [0, 100]
-                },
-                berat: {
-                    required: true,
-                    digits: true
-                }
-            },
-            messages: {
-                jenis: {
-                    required: " Jenis hewan harus diisi",
-                },
-                id: {
-                    required: " ID hewan harus diisi"
-                },
-                nama: {
-                    required: " Nama hewan harus diisi",
-                },
-                gender: {
-                    required: " Gender hewan harus diisi"
-                },
-                umur: {
-                    required: " Umur hewan harus diisi",
-                    digits: " Umur hewan harus hanya terdiri dari angka",
-                    range: " Umur hewan harus ada di antara 0-100"
-                },
-                berat: {
-                    required: " Berat hewan harus diisi",
-                    digits: " Berat hewan harus hanya terdiri dari angka"
-                }
-            }
-        });
-    });
-  },
+  
   methods: {
     addprofilhewan() {
       (async () => {
@@ -183,7 +128,6 @@ export default {
 <style>
 body{
 	margin: 0;
-	font-family: sans-serif;
 }
 
 .header{
@@ -225,7 +169,6 @@ h2{
 
 .welcome h2{
 	margin-left: 20px;
-	font-family: 'comic sans ms';
 	color: white;
 	text-align: start;
 }
@@ -242,7 +185,6 @@ h2{
 .header h1{
   margin: 0;
   color: white;
-  font-family: 'comic sans ms';
   font-size: 50px;
   font-weight: bold;
 }
@@ -262,7 +204,6 @@ h2{
 
 .menu span{
   margin-left: 10px;
-  font-family: 'comic sans ms';
   font-size: 30px;
   align-items:center;
   line-height: 0px;
@@ -287,7 +228,6 @@ h2{
 }
 
 .dasboard a{
-  font-family: 'comic sans ms';
   color: rgb(255, 255, 255);
   font-size:x-large;
   display: flex;
@@ -369,11 +309,9 @@ label.labelfrm{
   margin-left: 450px;
   margin-top: 20px;
   align-items: center;
-  font-family: 'comic sans ms';
   font-size: 20px;
 }
 
-.error { font-size:small; color:red; }
 
 .button-submit{
   text-decoration: none;

@@ -19,13 +19,11 @@ const routes = [
     path: '/daftar-ternak',
     name: 'daftar-ternak',
     component: () => import('../views/DaftarTernakView.vue'),
-    meta:{title: 'Daftar Ternak', requiresAuth: true}
   },
   {
     path: '/hewan-baru',
     name: 'hewan-baru',
     component: () => import('../views/HewanBaruView.vue'),
-    meta:{title: 'Hewan Baru', requiresAuth: true}
   },
   // {
   //   path: '/pengobatan',
