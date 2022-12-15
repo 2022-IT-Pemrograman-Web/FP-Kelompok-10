@@ -36,6 +36,8 @@
         <td data-label="Jenis Kelamin">{{profilhewan.jeniskelamin}}</td>
         <td data-label="Berat Badan">{{profilhewan.beratbadan}}</td>
         <td data-label="Hasil Kawin">{{profilhewan.hasilkawin}}</td>
+	<button @click="deleteProfilHewan(profilhewan.id)">Delete</button>
+        <button @click="updateProfilHewan(profilhewan.id)">Update</button>
 			</tr>
     </tbody>
 		
@@ -44,7 +46,7 @@
 
 
 <script>
-import { collection, getDocs } from "firebase/firestore/lite";
+import { collection, getDocs, deleteDoc, updateDoc, doc } from "firebase/firestore/lite";
 import db from "../firebase";
 
 
@@ -66,6 +68,18 @@ export default {
       });
       console.log(this.todos);
     },
+    deleteProfilHewan(id){
+      (async () => {
+        await deleteDoc(doc(collection(db, "profilhewan"), id));
+      })();
+    },
+    updateProfilHewan(id){
+      (async () => {
+        await updateDoc(doc(collection(db, "profilhewan"), id), {
+          nama: "abc"
+        });
+      })();
+    }
   }
 }
 </script>
