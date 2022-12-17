@@ -1,4 +1,4 @@
-# mppl_d10_ternak
+# Pweb_E10_ternak
 
 ## Project setup
 ```

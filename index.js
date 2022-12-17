@@ -1,9 +1,8 @@
 const express = require("express");
-const cors = require("cors");
+//const cors = require("cors");
 const app = express();
 const admin = require("firebase-admin");
 const credentials = require("./key.json");
-app.use(cors())
 
 admin.initializeApp({
     credential: admin.credential.cert(credentials)
@@ -17,7 +16,7 @@ app.post("/create", async (req, res) => {
         console.log(req.body);
         //const id = req.body.id;
         const profilhewan = {
-            idhewan: req.body.idhewan,
+            id: req.body.id,
             nama: req.body.nama,
             umur: req.body.umur,
             jenishewan: req.body.jenishewan,
@@ -59,9 +58,9 @@ app.get("/read/:id", async (req, res) => {
 app.post("/update/:id", async (req, res) => {
     try {
         const response = await db.collection("profilhewan").doc(req.params.id).update({
-            id: "A-022",
-            nama: "Update",
-            umur: "6",
+            id: "A-900",
+            nama: "Siti",
+            umur: "5",
             jenishewan: "Kambing",
             hasilkawin: true,
             beratbadan: "54",
