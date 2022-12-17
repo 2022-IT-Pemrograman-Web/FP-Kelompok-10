@@ -25,7 +25,7 @@
 
     <div class="wrapper">
       <label for="id" class="labelfrm">ID: </label><br>
-      <input type="text" name="id" id="id" size="5" v-model="profilhewan.id" placeholder="A-XXX"/><br>
+      <input type="text" name="id" id="id" size="5" v-model="profilhewan.idhewan" placeholder="A-XXX"/><br>
     </div><br>
 
     <div class="wrapper">
@@ -65,17 +65,16 @@
 
 
 <script>
-import { setDoc, doc, collection, /*query, where, getCountFromServer, updateDoc*/ } from "firebase/firestore/lite";
-import db from "../firebase";
+//import { setDoc, doc, collection, /*query, where, getCountFromServer, updateDoc*/ } from "firebase/firestore/lite";
+//import db from "../firebase";
 import axios from "axios";
-import $ from 'jquery'
 
 export default {
   data() {
     return {
       profilhewan: {
         jenishewan: "",
-        id: "",
+        idhewan: "",
         nama: "",
         jeniskelamin: "",
         umur: "",
@@ -86,75 +85,24 @@ export default {
     };
   },
   mounted () {
-    this.getCount();
-    $(document).ready(function(){
-        $('#frm-hwn').validate({
-            rules: {
-                jenis : {
-                    required: true
-                },
-                id : {
-                    required: true
-                },
-                nama: {
-                    required: true,
-                },
-                gender: {
-                    required: true
-                },
-                umur: {
-                    required: true,
-                    digits: true,
-                    range: [0, 100]
-                },
-                berat: {
-                    required: true,
-                    digits: true
-                }
-            },
-            messages: {
-                jenis: {
-                    required: " Jenis hewan harus diisi",
-                },
-                id: {
-                    required: " ID hewan harus diisi"
-                },
-                nama: {
-                    required: " Nama hewan harus diisi",
-                },
-                gender: {
-                    required: " Gender hewan harus diisi"
-                },
-                umur: {
-                    required: " Umur hewan harus diisi",
-                    digits: " Umur hewan harus hanya terdiri dari angka",
-                    range: " Umur hewan harus ada di antara 0-100"
-                },
-                berat: {
-                    required: " Berat hewan harus diisi",
-                    digits: " Berat hewan harus hanya terdiri dari angka"
-                }
-            }
-        });
-    });
+
   },
   methods: {
-    /*addprofilhewan() {
-      axios.post("http://localhost:8081/create", {
-        id: this.profilhewan.id,
-        nama: this.profilhewan.nama,
-        umur: this.profilhewan.umur,
-        jenishewan: this.profilhewan.jenishewan,
-        hasilkawin: this.profilhewan.hasilkawin,
-        beratbadan: this.profilhewan.beratbadan,
-        jeniskelamin: this.profilhewan.jeniskelamin
-      })
-    }*/
-    addprofilhewan() {
-      (async () => {
-        await setDoc(doc(collection(db, "profilhewan")), this.profilhewan);
-      })();
-    },
+    async addprofilhewan() {
+      try {
+        await axios.post("http://localhost:8081/create", {
+          idhewan: this.profilhewan.idhewan,
+          nama: this.profilhewan.nama,
+          umur: this.profilhewan.umur,
+          jenishewan: this.profilhewan.jenishewan,
+          hasilkawin: this.profilhewan.hasilkawin,
+          beratbadan: this.profilhewan.beratbadan,
+          jeniskelamin: this.profilhewan.jeniskelamin
+        })
+      } catch (err) {
+        console.log(err)
+      }
+    }
     // async getCount() {
     //   try {
     //     const coll = collection(db, "jumlahhewan");
