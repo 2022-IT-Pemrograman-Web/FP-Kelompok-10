@@ -90,7 +90,7 @@ export default {
   methods: {
     async addprofilhewan() {
       try {
-        await axios.post("http://localhost:8081/create", {
+        await axios.post("http://localhost:8080/create", {
           idhewan: this.profilhewan.idhewan,
           nama: this.profilhewan.nama,
           umur: this.profilhewan.umur,

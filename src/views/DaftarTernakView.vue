@@ -38,7 +38,7 @@
         <td data-label="Berat Badan">{{profilhewan.beratbadan}}</td>
         <td data-label="Hasil Kawin">{{profilhewan.hasilkawin}}</td>
         <button @click="deleteprofilhewan(profilhewan.id)">Delete</button>
-        <button @click="updateProfilHewan(profilhewan.id)">Update</button>
+        <button @click="updateprofilhewan(profilhewan.id)">Update</button>
 			</tr>
     </tbody>
   </table>
@@ -62,7 +62,7 @@ export default {
   methods: {
     async getprofilhewan() {
       try {
-        const response = await axios.get('http://localhost:8081/read')
+        const response = await axios.get('http://localhost:8080/read')
         this.profilhewan = response.data
         console.log(response)
       } catch(err) {
@@ -77,7 +77,7 @@ export default {
         await updateDoc(doc(collection(db, "profilhewan"), id));
       })();*/
       try {
-        await axios.delete("http://localhost:8081/delete/" + id)
+        await axios.delete("http://localhost:8080/delete/" + id)
       } catch(err) {
         console.log(err)
       }
