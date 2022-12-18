@@ -19,6 +19,7 @@
   <table class="table">
     <thead>
       <tr>
+        <th>ID</th>
         <th>ID Hewan</th>
         <th>Nama</th>
         <th>Usia</th>
@@ -26,10 +27,12 @@
         <th>Jenis Kelamin</th>
         <th>Berat Badan</th>
         <th>Hasil Kawin</th>
+        <th>Action</th>
       </tr>
 		</thead>
 		<tbody v-for="profilhewan in profilhewan" :key="profilhewan.id">
 			<tr>
+				<td data-label="ID">{{profilhewan.id}}</td>
 				<td data-label="ID Hewan">{{profilhewan.idhewan}}</td>
 				<td data-label="Nama">{{profilhewan.nama}}</td>
         <td data-label="Usia">{{profilhewan.umur}}</td>
@@ -37,8 +40,10 @@
         <td data-label="Jenis Kelamin">{{profilhewan.jeniskelamin}}</td>
         <td data-label="Berat Badan">{{profilhewan.beratbadan}}</td>
         <td data-label="Hasil Kawin">{{profilhewan.hasilkawin}}</td>
-        <button @click="deleteprofilhewan(profilhewan.id)">Delete</button>
-        <button @click="updateProfilHewan(profilhewan.id)">Update</button>
+        <td>
+          <button @click="deleteprofilhewan(profilhewan)">Delete</button>
+          <button @click="updateprofilhewan(profilhewan)">Update</button>
+        </td>
 			</tr>
     </tbody>
   </table>
@@ -46,7 +51,7 @@
 
 
 <script>
-import { collection, /*getDocs,*/ updateDoc, doc } from "firebase/firestore/lite";
+import { collection, /*getDocs,*/ updateDoc, /*deleteDoc,*/ doc } from "firebase/firestore/lite";
 import db from "../firebase";
 import axios from "axios";
 
@@ -69,15 +74,27 @@ export default {
         console.log(err)
       }
     },
+    // getprofilhewan(){
+    //   axios.get('http://localhost:8081/read').then(res => {
+    //     this.profilhewan = res.data //respon dari rest api dimasukan ke users
+    //   }).catch ((err) => {
+    //     console.log(err);
+    //   })
+    // },
     setprofilehewan(data){
       this.profilhewan = data
     },
+
+    // async deleteprofilhewan(id){
+    //   await fetch("http://localhost:8081/delete/" + id, {
+    //     method: 'DELETE',})
+    // },  
     async deleteprofilhewan(id){
-      /*(async () => {
-        await updateDoc(doc(collection(db, "profilhewan"), id));
-      })();*/
       try {
-        await axios.delete("http://localhost:8081/delete/" + id)
+        await axios.delete('http://localhost:8081/delete/' + id)
+        this.getprofilhewan()
+        let index = this.profilhewan.indexOf(id)
+        this.profilhewan.splice(index,1)
       } catch(err) {
         console.log(err)
       }
